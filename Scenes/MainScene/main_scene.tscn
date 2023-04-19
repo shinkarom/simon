@@ -1,7 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://cabgha73kbhga"]
+[gd_scene load_steps=5 format=3 uid="uid://cabgha73kbhga"]
 
 [ext_resource type="PackedScene" uid="uid://ccuhkxu7jn6ki" path="res://Scenes/SimonButton/simon_button.tscn" id="1_2g8dv"]
 [ext_resource type="Script" path="res://Scenes/MainScene/main_scene.gd" id="1_ejrsm"]
+[ext_resource type="FontFile" uid="uid://4yvptsdrrcmt" path="res://Assets/Inter-Regular.otf" id="3_ymtag"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_k21rh"]
+font = ExtResource("3_ymtag")
+font_size = 32
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_ejrsm")
@@ -21,3 +26,30 @@ color = "blue"
 [node name="YellowButton" parent="." instance=ExtResource("1_2g8dv")]
 position = Vector2(320, 297)
 color = "yellow"
+
+[node name="StateLabel" type="Label" parent="."]
+offset_left = 177.0
+offset_top = 68.0
+offset_right = 451.0
+offset_bottom = 110.0
+text = "Simon game state"
+label_settings = SubResource("LabelSettings_k21rh")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="NewGameButton" type="Button" parent="."]
+offset_left = 260.0
+offset_top = 468.0
+offset_right = 348.0
+offset_bottom = 499.0
+text = "new game"
+
+[connection signal="activated" from="RedButton" to="." method="_on_button_activated"]
+[connection signal="done" from="RedButton" to="." method="_on_button_done"]
+[connection signal="activated" from="GreenButton" to="." method="_on_button_activated"]
+[connection signal="done" from="GreenButton" to="." method="_on_button_done"]
+[connection signal="activated" from="BlueButton" to="." method="_on_button_activated"]
+[connection signal="done" from="BlueButton" to="." method="_on_button_done"]
+[connection signal="activated" from="YellowButton" to="." method="_on_button_activated"]
+[connection signal="done" from="YellowButton" to="." method="_on_button_done"]
+[connection signal="pressed" from="NewGameButton" to="." method="_on_new_game_button_pressed"]

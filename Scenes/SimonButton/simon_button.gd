@@ -37,7 +37,8 @@ var isclickable = false
 		isclickable = value
 		$TextureButton.disabled = not value
 
-signal activated	
+signal activated
+signal done	
 
 func activate():
 	$TextureButton.toggle_mode = true
@@ -47,7 +48,6 @@ func activate():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -60,4 +60,5 @@ func _on_texture_button_pressed():
 func _on_timer_timeout():
 	pressed = false
 	$TextureButton.toggle_mode = false
+	emit_signal("done")
 
