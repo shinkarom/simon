@@ -1,6 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://cabgha73kbhga"]
+[gd_scene load_steps=3 format=3 uid="uid://cabgha73kbhga"]
 
+[ext_resource type="PackedScene" uid="uid://ccuhkxu7jn6ki" path="res://Scenes/SimonButton/simon_button.tscn" id="1_2g8dv"]
 [ext_resource type="Script" path="res://Scenes/MainScene/main_scene.gd" id="1_ejrsm"]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_ejrsm")
+
+[node name="RedButton" parent="." instance=ExtResource("1_2g8dv")]
+position = Vector2(192, 171)
+color = "red"
+
+[node name="GreenButton" parent="." instance=ExtResource("1_2g8dv")]
+position = Vector2(323, 170)
+color = "green"
+
+[node name="BlueButton" parent="." instance=ExtResource("1_2g8dv")]
+position = Vector2(192, 292)
+color = "blue"
+
+[node name="YellowButton" parent="." instance=ExtResource("1_2g8dv")]
+position = Vector2(320, 297)
+color = "yellow"
