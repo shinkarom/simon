@@ -18,14 +18,17 @@ color = "red"
 [node name="GreenButton" parent="." instance=ExtResource("1_2g8dv")]
 position = Vector2(323, 170)
 color = "green"
+metadata/tag = 1
 
 [node name="BlueButton" parent="." instance=ExtResource("1_2g8dv")]
 position = Vector2(192, 292)
 color = "blue"
+metadata/tag = 2
 
 [node name="YellowButton" parent="." instance=ExtResource("1_2g8dv")]
 position = Vector2(320, 297)
 color = "yellow"
+metadata/tag = 3
 
 [node name="StateLabel" type="Label" parent="."]
 offset_left = 177.0
@@ -36,6 +39,8 @@ text = "Simon game state"
 label_settings = SubResource("LabelSettings_k21rh")
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
 
 [node name="NewGameButton" type="Button" parent="."]
 offset_left = 260.0
@@ -52,4 +57,5 @@ text = "new game"
 [connection signal="done" from="BlueButton" to="." method="_on_button_done"]
 [connection signal="activated" from="YellowButton" to="." method="_on_button_activated"]
 [connection signal="done" from="YellowButton" to="." method="_on_button_done"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="NewGameButton" to="." method="_on_new_game_button_pressed"]

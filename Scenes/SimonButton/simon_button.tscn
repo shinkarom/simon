@@ -6,6 +6,7 @@
 
 [node name="SimonButton" type="Node2D" groups=["buttons"]]
 script = ExtResource("1_lo4w2")
+metadata/tag = 0
 
 [node name="TextureButton" type="TextureButton" parent="."]
 offset_right = 40.0
@@ -17,7 +18,13 @@ texture_hover = ExtResource("2_6w1r6")
 texture_disabled = ExtResource("2_6w1r6")
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
 one_shot = true
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="button_down" from="TextureButton" to="." method="_on_texture_button_button_down"]
+[connection signal="button_up" from="TextureButton" to="." method="_on_texture_button_button_up"]
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

@@ -1,6 +1,6 @@
 extends Node
 
-enum {IDLE, PLAYING, ENTERING, GAMEOVER}
+enum {IDLE, PLAYING, ENTERING}
 
 var state = IDLE
 
@@ -23,6 +23,9 @@ func startRound():
 	
 func finishedPlaying():
 	state = ENTERING
+
+func gameOver():
+	state = IDLE
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
