@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cabgha73kbhga"]
+[gd_scene load_steps=6 format=3 uid="uid://cabgha73kbhga"]
 
 [ext_resource type="PackedScene" uid="uid://ccuhkxu7jn6ki" path="res://Scenes/SimonButton/simon_button.tscn" id="1_2g8dv"]
 [ext_resource type="Script" path="res://Scenes/MainScene/main_scene.gd" id="1_ejrsm"]
@@ -7,6 +7,10 @@
 [sub_resource type="LabelSettings" id="LabelSettings_k21rh"]
 font = ExtResource("3_ymtag")
 font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_1n6ft"]
+font = ExtResource("3_ymtag")
+font_size = 20
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_ejrsm")
@@ -35,19 +39,31 @@ offset_left = 177.0
 offset_top = 68.0
 offset_right = 451.0
 offset_bottom = 110.0
-text = "Simon game state"
+text = "Simon"
 label_settings = SubResource("LabelSettings_k21rh")
+horizontal_alignment = 1
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
 
 [node name="NewGameButton" type="Button" parent="."]
-offset_left = 260.0
-offset_top = 468.0
-offset_right = 348.0
-offset_bottom = 499.0
+offset_left = 259.0
+offset_top = 438.0
+offset_right = 347.0
+offset_bottom = 469.0
 text = "new game"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 7.0
+offset_top = 513.0
+offset_right = 590.0
+offset_bottom = 591.0
+text = "(c) 2023 shinkarom (https://shinkarom.github.io)
+Support me on https://buymeacoffee.com/shinkarom
+Uses font Inter by https://rsms.me"
+label_settings = SubResource("LabelSettings_1n6ft")
+horizontal_alignment = 1
 
 [connection signal="activated" from="RedButton" to="." method="_on_button_activated"]
 [connection signal="done" from="RedButton" to="." method="_on_button_done"]
